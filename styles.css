@@ -1,36 +1,100 @@
+html {
+    background: rgb(162,209,132);
+background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%);
+    height: 100vh;
+}
+
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 2fr 1fr 1fr; 
     grid-template-rows: 1fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 20px 20px;
-    grid-auto-flow: row;
+    gap: 1rem;
+    margin: 5rem auto;
+    padding: 0 1rem; /* 1rem margin on left and right */
     grid-template-areas:
         "Earth-Main Composting-Main Gardening-1-Main"
         "Earth-Main Gardening-2-Main Explore-Main";
+    max-height: 100vh;
+    width: 98vw;
+}
+
+.container > div {
+    background-size: cover;
+    background-position: center;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 12px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.container > div::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 3, 3, .7); /* Initially transparent background */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    z-index: 1; /* Ensure the mask is above the content */
+}
+
+.container > div:hover::before {
+    opacity: 0.6; /* Semi-transparent black mask on hover */
+}
+
+.container > div:hover h2 {
+    animation: moveAndScale 0.3s forwards; /* Apply animation to h2 on hover */
+    z-index:2;
+    opacity: 100%;
 }
 
 .Earth-Main {
     grid-area: Earth-Main;
-    background-image: url(./images/Earth\ Main.png)
+    background-image: url(./images/Earth\ Main.png);
 }
 
 .Composting-Main {
     grid-area: Composting-Main;
-    background-image: url(./images/Composting\ Main.png)
+    background-image: url(./images/Composting\ Main.png);
 }
 
 .Gardening-1-Main {
     grid-area: Gardening-1-Main;
-    background-image: url(./images/Gardening\ 2\ Main.png)
+    background-image: url(./images/Gardening\ 2\ Main.png);
 }
 
 .Gardening-2-Main {
     grid-area: Gardening-2-Main;
-    background-image: url(./images/Gardening\ 1\ Main.png)
+    background-image: url(./images/Gardening\ 1\ Main.png);
 }
 
 .Explore-Main {
     grid-area: Explore-Main;
-    background-image: url(./images/Explore\ Main.png)
+    background-image: url(./images/Explore\ Main.png);
+}
+
+.Composting-Main,
+.Gardening-1-Main,
+.Gardening-2-Main,
+.Explore-Main {
+    height: 28rem; /* Adjust the height as needed */
+}
+
+.Earth-Main h2 {
+    font-size: 4rem;
+}
+
+@keyframes moveAndScale {
+    0% {
+        transform: translateY(0) scale(1);
+        color: inherit;
+    }
+    100% {
+        transform: translateY(50%) scale(1.35); /* Adjust scale factor as needed */
+        color: white;
+    }
 }
