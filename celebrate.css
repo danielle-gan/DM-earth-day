@@ -89,16 +89,15 @@ h4 {
 }
 
 #midsection {
-    width: 100%;
+    width: 90%;
     height: 50%;
-    margin:0;
+    margin: 2rem auto;
 }
 
 #midsection h2 {
     color: #333;
     margin-left: 3rem;
 }
-
 #midsection h3 {
     color: #333;
     margin-left: 3rem;
