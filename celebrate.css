@@ -1,0 +1,109 @@
+html {
+    background: rgb(162,209,132);
+background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%);
+    height: 300vh;
+}
+hero {
+    display: flex;
+    flex-direction: column;
+    background-image: url("images/Nature.jpg");
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+hero h2 {
+    font-size: 5rem;
+    color: #dff5e1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%);
+}
+hero h3 {
+    font-size: 2rem;
+    color: #dff5e1;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: linear-gradient(320deg, rgba(162,209,132,1) 0%,rgba(7,73,11,1) 100%);
+}
+
+section {
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #dff5e1;
+    margin-bottom: 0;
+}
+
+section h3 {
+    font-size: 1.4rem;
+    color: #dff5e1;
+    margin-top: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Signika", sans-serif;
+}
+
+.signika {
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+      "GRAD" 0;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%; 
+}
+
+.recipe {
+    background-color: #EDE4B3;
+    background-image: url('./images/paper-texture.jpg');
+    background-blend-mode:luminosity;
+    padding: 40px 30px;
+    background-size: cover;
+    max-width: 500px;
+}
+
+.align-top {
+    align-items: stretch;
+}
+
+
+h4 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+#midsection {
+    width: 100%;
+    height: 50%;
+    margin:0;
+}
+
+#midsection h2 {
+    color: #333;
+    margin-left: 3rem;
+}
+
+#midsection h3 {
+    color: #333;
+    margin-left: 3rem;
+}
+
+.yellow-bg {
+    background-color:#EDE4B3;
+}
