@@ -12,21 +12,27 @@
 </head>
 
 <body class="signika">
+    <header>
+        <img src="./images/DM-green-logo.png">
+        <h1>Data-Mail Earth Day</h1>
+    </header>
     <div class="container">
-            <div class="Earth-Main" onclick="window.open('./celebrate.html', '_blank')">
-                <h2>Celebrate Earth Day</h2>
+            <div class="Earth-Main" onclick="window.open('./celebrate.html')">
+                <h2 class="animated-main">Celebrate Earth Day</h2>
             </div>
-        <div class="Composting-Main">
-            <h2>Composting 101 with Chuck Puffe</h2>
+        <div class="Composting-Main" onclick="window.open('./chuck.html')">
+            <h2 class="animated">Composting 101 with Chuck Puffe</h2>
         </div>
-        <div class="Gardening-1-Main">
-            <h2>Vin's Garden</h2>
+        <div class="Gardening-1-Main" onclick="window.open('./vin.html')">
+            <h2 class="animated">Vin's Garden</h2>
         </div>
-        <div class="Gardening-2-Main">
-            <h2>David D's Gardening for Beginners</h2>
+        <div class="Gardening-2-Main" onclick="window.open('./david.html')">
+            <h2 class="animated">David D's Gardening for Beginners</h2>
         </div>
-        <div class="Explore-Main"></div>
+        <div class="Explore-Main" onclick="window.open('https://www.earthday.org/history/', '_blank')"></div>
     </div>
+
+    <script src="animation.js"></script>
 </body>
 
 </html>

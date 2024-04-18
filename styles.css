@@ -1,63 +1,97 @@
 html {
-    background: rgb(162,209,132);
-background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%);
+    background: rgb(162, 209, 132);
+    background: linear-gradient(320deg, rgba(162, 209, 132, 1) 0%, rgba(7, 73, 11, 1) 100%);
     height: 100vh;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .signika {
     font-family: "Signika", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: bold;
     font-style: normal;
     font-variation-settings:
-      "GRAD" 0;
+        "GRAD" 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    top: -15px; 
+    left: 20px;
+}
+
+header img {
+    width: 7%;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-left: 2rem;
+    margin-bottom: 0rem;
 }
 
 .container {
     display: grid;
-    grid-auto-columns: 1fr; 
-    grid-template-columns: 2fr 1fr 1fr; 
+    grid-auto-columns: 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
-    margin: 5rem auto;
-    padding: 0 1rem; /* 1rem margin on left and right */
+    margin: -1rem auto;
+    padding: 0 1rem;
+    /* 1rem margin on left and right */
     grid-template-areas:
         "Earth-Main Composting-Main Gardening-1-Main"
         "Earth-Main Gardening-2-Main Explore-Main";
-    max-height: 100vh;
+    max-height: 98vh;
     width: 98vw;
 }
 
-.container > div {
+.container>div {
     background-size: cover;
     background-position: center;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 12px;
     display: flex;
     justify-content: center;
     position: relative;
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, color 0.3s ease;
+    /* Smooth transition */
 }
 
-.container > div::before {
+.container>div:not(.Explore-Main)::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(3, 3, 3, .7); /* Initially transparent background */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease; /* Smooth transition */
-    z-index: 1; /* Ensure the mask is above the content */
+    background-color: rgba(3, 3, 3, .7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
-.container > div:hover::before {
-    opacity: 0.6; /* Semi-transparent black mask on hover */
+.container>div:not(.Explore-Main):hover::before {
+    opacity: 0.6;
 }
 
-.container > div:hover h2 {
-    animation: moveAndScale 0.3s forwards; /* Apply animation to h2 on hover */
-    z-index:2;
+.container>div:not(.Explore-Main):hover h2 {
+    animation: moveAndScale 0.3s forwards;
+    /* Apply animation to h2 on hover */
+    z-index: 2;
     opacity: 100%;
 }
 
@@ -84,17 +118,28 @@ background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%
 .Explore-Main {
     grid-area: Explore-Main;
     background-image: url(./images/Explore\ Main.png);
+    /* transition: background-size 2s ease-in-out; */
+}
+
+.Explore-Main:hover {
+    animation: bgScale 2s ease-in-out infinite alternate;
+    /* make it stay at scale until no longer hovering */
 }
 
 .Composting-Main,
 .Gardening-1-Main,
 .Gardening-2-Main,
 .Explore-Main {
-    height: 28rem; /* Adjust the height as needed */
+    height: 28rem;
+    /* Adjust the height as needed */
 }
 
 .Earth-Main h2 {
     font-size: 4rem;
+}
+
+.container h2:hover {
+    cursor: url(./images/earth.png), pointer;
 }
 
 @keyframes moveAndScale {
@@ -102,8 +147,58 @@ background: linear-gradient(320deg, rgba(162,209,132,1) 0%, rgba(7,73,11,1) 100%
         transform: translateY(0) scale(1);
         color: inherit;
     }
+
     100% {
-        transform: translateY(55%) scale(1.35); /* Adjust scale factor as needed */
+        transform: translateY(55%) scale(1.35);
+        /* Adjust scale factor as needed */
         color: white;
     }
+}
+
+@keyframes bgScale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.animated,
+.animated-main {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+}
+
+.animated::after,
+.animated-main::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    /* Change this to your desired underline color */
+    transition: width 0.3s ease;
+    width: 0;
+    margin-bottom: 15em;
+}
+
+.animated:hover::after,
+.animated-main:hover::after {
+    width: 100%;
+}
+
+.animated-main::after {
+    margin-bottom: 11em;
+}
+
+h1 {
+    color: #EDE4B3;
+    margin-left: 4rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0rem;
 }
